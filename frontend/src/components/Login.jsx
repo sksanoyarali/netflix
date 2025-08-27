@@ -6,9 +6,15 @@ import { auth } from '../utils/firebase'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../utils/userSlice'
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [isSignIn, setIsSignIn] = useState(true)
   const [errorMessage, setErrorMessage] = useState(null)
   const email = useRef(null)
@@ -29,7 +35,19 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user
-          console.log(user)
+          updateProfile(auth.currentUser, {
+            displayName: name.current.value,
+          })
+            .then(() => {
+              const { uid, email, displayName } = auth.currentUser
+              dispatch(
+                addUser({ uid: uid, email: email, displayName: displayName })
+              )
+              navigate('/browse')
+            })
+            .catch((error) => {
+              setErrorMessage(error.message)
+            })
         })
         .catch((error) => {
           const errorCode = error.code
@@ -46,6 +64,7 @@ const Login = () => {
           // Signed in
           const user = userCredential.user
           console.log(user)
+          navigate('/browse')
         })
         .catch((error) => {
           setErrorMessage('Incorrect credential')
@@ -82,7 +101,7 @@ const Login = () => {
         <input
           type="text"
           ref={password}
-          placeholder="email Address"
+          placeholder="Enter Password"
           className="p-2 my-4 w-full bg-gray-700 rounded-lg border-none outline-none"
         />
         {errorMessage && (
