@@ -11,6 +11,7 @@ export const VIDEO_URL =
   'https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US'
 
 export const IMAGE_CDN = 'https://image.tmdb.org/t/p/w500'
+
 export const apiOptions = {
   method: 'GET',
   headers: {
