@@ -15,7 +15,7 @@ const Header = () => {
       .then(() => {
         navigate('/')
       })
-      .catch((error) => {
+      .catch(() => {
         navigate('/error')
       })
   }
