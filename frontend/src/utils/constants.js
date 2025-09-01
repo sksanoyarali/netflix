@@ -22,3 +22,8 @@ export const apiOptions = {
       'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODY2YzQyNGYzY2E2ZDU2MDQ0ZGZiMGU1YTAwYWY4ZSIsIm5iZiI6MTc1NDc2MzU0MC43NjksInN1YiI6IjY4OTc5MTE0ZDEwMjkxMTNlNjVkMGFhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9nbD7JoJX0UXNcWc9T1Km2JbZjIfmogKKF_-u2Dgj4U',
   },
 }
+export const supportedLanguage = [
+  { identifier: 'en', name: 'English' },
+  { identifier: 'hindi', name: 'Hindi' },
+  { identifier: 'bengali', name: 'Bengali' },
+]
