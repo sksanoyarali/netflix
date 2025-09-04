@@ -18,8 +18,7 @@ export const apiOptions = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmODY2YzQyNGYzY2E2ZDU2MDQ0ZGZiMGU1YTAwYWY4ZSIsIm5iZiI6MTc1NDc2MzU0MC43NjksInN1YiI6IjY4OTc5MTE0ZDEwMjkxMTNlNjVkMGFhMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.9nbD7JoJX0UXNcWc9T1Km2JbZjIfmogKKF_-u2Dgj4U',
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`,
   },
 }
 export const supportedLanguage = [
